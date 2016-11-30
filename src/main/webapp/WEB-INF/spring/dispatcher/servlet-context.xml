@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <mvc:annotation-driven/>
+
+    <!-- Définit l'emplacment des controlleurs et dao -->
+    <context:component-scan
+            base-package="fr.univlyon1.sem.controller;fr.univlyon1.sem.parser;fr.univlyon1.sem.bean;fr.univlyon1.sem.dao;fr.univlyon1.sem.validator"/>
+
+
+    <!-- Définit l'emplacment des vues (JSP) -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views//"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
+    </bean>
+
+    <!-- Interceptor -->
+    <mvc:interceptors>
+        <bean class="fr.univlyon1.sem.filter.SessionInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- Datasource MySQL-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://jordan-martin.fr:3306/sem"/>
+        <property name="username" value="semapp"/>
+        <property name="password" value="f7fc8e4da2159b18d3ffb042b98853102a4fa7e7"/>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="/WEB-INF/hibernate.cfg.xml"/>
+
+        <!-- Emplacement des modèles annotés -->
+        <property name="packagesToScan" value="fr.univlyon1.sem.model"/>
+    </bean>
+
+
+    <!--Pour l'upload de fichiers-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+
+    <tx:annotation-driven/>
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--Permet l'utilisation des .properties via l'annoation @Value("${prop_name}") -->
+    <context:property-placeholder/>
+
+</beans>

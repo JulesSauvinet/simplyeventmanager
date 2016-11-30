@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+BEGIN:VEVENT
+DTSTART:20150412T140000Z
+DTEND:20150412T150000Z
+LOCATION:Lyon
+SUMMARY:Conference sur la programmation javascript
+DESCRIPTION:Notre expert vous parlera du langage javascript et des possibilités qu'il offre.
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150412T150000Z
+DTEND:20150412T160000Z
+LOCATION:Lyon
+SUMMARY:Test d'un nouveau langage, présenté par google
+DESCRIPTION:L'occasion de tester un nouveau langage vous est donné. Le tout dans une ambiance ludique.
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20150412T160000Z
+DTEND:20150412T170000Z
+LOCATION:Lyon
+SUMMARY:Présentation du résultat des tests
+DESCRIPTION:Vous pésenterez ce que vous aurez pu développer. Ensuite, vous pourrez partager vos expéricences autour d'un verre.
+END:VEVENT
+END:VCALENDAR

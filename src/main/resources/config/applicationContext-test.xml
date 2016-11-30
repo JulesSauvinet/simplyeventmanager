@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+       <!-- Activates scanning of @Autowired -->
+       <context:annotation-config />
+
+       <mvc:annotation-driven/>
+
+       <!-- Définit l'emplacment des controlleurs et dao -->
+       <context:component-scan base-package="fr.univlyon1.sem.bean;fr.univlyon1.sem.dao;fr.univlyon1.sem.parser;fr.univlyon1.sem.controller;fr.univlyon1.sem.validator"/>
+
+    <!-- Interceptor -->
+    <mvc:interceptors>
+        <bean class="fr.univlyon1.sem.filter.SessionInterceptor"/>
+    </mvc:interceptors>
+
+       <!-- Datasource MySQL-->
+       <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+              <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+              <property name="url" value="jdbc:mysql://jordan-martin.fr:3306/sem"/>
+              <property name="username" value="semapp"/>
+              <property name="password" value="f7fc8e4da2159b18d3ffb042b98853102a4fa7e7"/>
+       </bean>
+
+       <bean id="sessionBean" class="fr.univlyon1.sem.bean.SessionBean"/>
+       <bean id="configBean" class="fr.univlyon1.sem.bean.ConfigBean"/>
+
+
+       <bean id="sessionFactory"
+             class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+              <property name="dataSource" ref="dataSource"/>
+              <property name="hibernateProperties">
+                     <props>
+                            <prop key="hibernate.show_sql">true</prop>
+                            <!-- Indente les requêtes -->
+                            <prop key="hibernate.format_sql">true</prop>
+                            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                     </props>
+              </property>
+              <!-- Emplacement des modèles annotés -->
+              <property name="packagesToScan" value="fr.univlyon1.sem.model"/>
+       </bean>
+       <tx:annotation-driven/>
+       <bean id="transactionManager"
+             class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+              <property name="sessionFactory" ref="sessionFactory"/>
+       </bean>
+
+       <!--Permet l'utilisation des .properties via l'annoation @Value("${prop_name}") -->
+       <context:property-placeholder/>
+
+</beans>

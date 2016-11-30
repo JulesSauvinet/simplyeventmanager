@@ -1,0 +1,179 @@
+/** Override theme boostrap **/
+.btn-default {
+    background: #E8E8E8;
+    border-color: #c5c5c5;
+    color: #040404;
+}
+
+.btn-default:hover {
+    color: #3c3c3c;
+    background: #e0e0e0;
+    border-color: #ababab;
+}
+
+.btn-default:focus, .btn-default.focus,
+.btn-default:active:hover, .btn-default.active:hover, .open>.dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open>.dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open>.dropdown-toggle.btn-default.focus,
+.btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default{
+    color: #040404;
+    background: #e0e0e0;
+    border-color: #ababab;
+}
+
+.table>thead>tr>td.info, .table>tbody>tr>td.info, .table>tfoot>tr>td.info, .table>thead>tr>th.info, .table>tbody>tr>th.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>tbody>tr.info>td, .table>tfoot>tr.info>td, .table>thead>tr.info>th, .table>tbody>tr.info>th, .table>tfoot>tr.info>th {
+    background-color: #0E8ED2;
+}
+
+.navbar-default {
+    background-color: #7D7D7D;
+    border-color: #525252;
+}
+
+
+/**
+ * Globale
+ */
+.main-content {
+    padding-top: 80px;
+}
+
+/**
+ * Page d'accueil
+ */
+.project-members {
+    text-align: center;
+}
+
+.project-members li {
+    display: inline-block;
+    list-style: none;
+    background: #fff;
+    padding: 5px 20px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    width: calc(50% - 4px);
+    box-sizing: border-box;
+}
+
+/**
+ * Connexion
+ */
+.loggin-btn {
+    width: 100%;
+}
+
+/**
+ * Edtion conference
+ */
+#map {
+    width: 100%;
+    height: 250px;
+}
+
+/**
+ * Liste des conférences
+ */
+.download-dataset-btn {
+    border: solid 1px #ccc;
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.download-dataset-btn:hover {
+    text-decoration: none;
+}
+
+.label-empty-list {
+    font-size: 2.5em;
+    color: #ccc;
+    text-align: center;
+}
+
+/**
+ * Edtion conference
+ */
+#facebook_button {
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/**
+* Edition d'une entité
+*/
+.input-template {
+    display: none;
+}
+
+#propertiesContainer {
+    margin-top: 10px;
+}
+
+/**
+ * Helpers
+ */
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+/**
+* Validation ou annulation bouton
+*/
+
+#btnshow {
+    text-align: center;
+    margin: auto;
+}
+
+/*
+MAPPING CSV
+*/
+
+table.table-fixedheader>td, table.table-fixedheader>th{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width:50px;
+}
+
+/*
+table.table-fixedheader {
+    width: 100%;
+}
+
+table.table-fixedheader, table.table-fixedheader>thead, table.table-fixedheader>tbody, table.table-fixedheader>thead>tr, table.table-fixedheader>tbody>tr, table.table-fixedheader>thead>tr>th, table.table-fixedheader>tbody>td {
+    display: block;
+}
+table.table-fixedheader>thead>tr:after, table.table-fixedheader>tbody>tr:after {
+    content:' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+table.table-fixedheader>tbody {
+    overflow-y: scroll;
+    height: 500px;
+}
+
+table.table-fixedheader>thead {
+    overflow-y: scroll;
+}
+
+table.table-fixedheader>thead::-webkit-scrollbar {
+    background-color: inherit;
+}
+
+
+table.table-fixedheader>thead>tr>th:after, table.table-fixedheader>tbody>tr>td:after {
+    content:' ';
+    display: table-cell;
+    visibility: hidden;
+    clear: both;
+}
+
+table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
+    float: left;
+    word-wrap:break-word;
+}
+*/

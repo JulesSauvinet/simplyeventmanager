@@ -1,0 +1,16 @@
+syntax: glob
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.orig
+
+hs_err_pid*
+.idea/**
+target/**
+*.iml
+~*
+
