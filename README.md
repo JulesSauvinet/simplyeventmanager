@@ -1,2 +1,2 @@
 # simplyeventmanager
-Interface manager de gestion d'une conférence en JEE. Création d'une conférence, des sous-évènements de la conférence et import de calendrier (iCal).
+Ce projet permet la gestion de toutes les données d'une conférence via une interface web. Les données peuvent être manipulées via un système d'import/export de fichiers dans de nombreux formats.
